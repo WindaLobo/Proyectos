@@ -14,11 +14,9 @@ public class JavaApplication5 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        //Buclewhile obx = new Buclewhile();
-        //obx.verNumero();
          Bucles obx = new Bucles();
-        //obx.conWhile();
-        //obx.conDoWhile();
+         obx.conWhile();
+        obx.conDoWhile();
         obx.conFor();
     }
     

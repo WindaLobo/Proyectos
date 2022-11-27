@@ -1,18 +1,9 @@
 package javaapplication5;
 
 
+import javax.swing.*;
 import java.util.Scanner;
-import javax.swing.JOptionPane;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
-/**
- *
- * @author dam1
- */
 public class Bucles {
     public void conWhile() {
         // Escribe un programa que sume cinco numeros enteros.

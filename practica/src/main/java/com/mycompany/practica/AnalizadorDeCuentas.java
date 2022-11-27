@@ -3,7 +3,7 @@ package com.mycompany.practica;
 import java.util.Scanner;
 
 public class AnalizadorDeCuentas {
-
+      
     public void cuentaBancaria1() {
         Scanner scanner = new Scanner(System.in);
 
