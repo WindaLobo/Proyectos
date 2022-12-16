@@ -11,10 +11,16 @@ public class CuentaAhorro extends Cuenta {
     public CuentaAhorro(long numeroCuenta, Persona cliente, double saldo, double interesAnual) {
         super(numeroCuenta, cliente, saldo);
         this.interesAnual = interesAnual;
-        if (saldo >= saldoMino) {
-            super.setSaldo(saldo + saldo * interesAnual * 1 / 100);
+    }
+
+    @Override
+    public void actualizarSaldo() {
+        if (super.getSaldo() >= saldoMino) {
+            double saldo= super.getSaldo()- super.getSaldo()*(interesAnual/100);
+     
+     super.setSaldo(saldo);
+            
         }
     }
 
-    
 }

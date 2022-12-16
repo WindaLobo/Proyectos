@@ -1,10 +1,8 @@
 package boletin16;
 
-import javax.swing.JOptionPane;
-
 public class Cuenta {
 
-    long numeroCuenta;
+    private long numeroCuenta;
     private double saldo;
     private Persona cliente;
 
@@ -33,34 +31,31 @@ public class Cuenta {
         this.saldo = saldo;
     }
 
+    public double getSaldo() {
+        return saldo;
+    }
+
     public void setCliente(Persona cliente) {
         this.cliente = cliente;
     }
 
-    public double Ingresar() {
-int pregunta=JOptionPane.showConfirmDialog(null,"Quieres ingresar saldo?");
-            if (pregunta==0) {
-                double ing=Double.parseDouble(JOptionPane.showInputDialog("ingrese monto a ingresar:"));
-                saldo = saldo + ing;
-            }
-            return saldo;
+    public double Ingresar(double euros) {
+        if (euros > 0) {
+            saldo += euros;
+        }
+        return saldo;
     }
-
-    public double Retirar() {
-        int persona = JOptionPane.showConfirmDialog(null, "Quieres retirar?");
-        if (persona <= 0) {
-
-            double ret = Double.parseDouble(JOptionPane.showInputDialog("ingrese monto a retirar:"));
-            saldo -= ret;
+    
+    public double Retirar(double euros) {
+        if (euros > 0) {
+            saldo -= euros;
         }
         return saldo;
     }
 
     public void actualizarSaldo() {
-        JOptionPane.showMessageDialog(null, "Su saldo actual es: "
-                + saldo + " €");
     }
-
+    
     @Override
     public String toString() {
         return " numeroCuenta = " + numeroCuenta + "\n saldo = " + saldo + "\n  cliente = " + cliente;
