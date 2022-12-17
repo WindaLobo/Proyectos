@@ -1,63 +1,76 @@
 package boletin12;
-
 import javax.swing.JOptionPane;
 
-public class Jugadores2 {
+public class AdivinadorDeNumero {
 
-    public void juegoadivinador2() {
-        int numeroA;
-        int numeroIntoducido;
-        int contadorNumero;
+    public void juegoAdivinador() {
 
-        JOptionPane.showMessageDialog(null, "********** El juego comsiste en adivinar un numero hasta el 50 *********");
-        JOptionPane.showMessageDialog(null, " Debes adivinar  un numero del 1 al 50 ");
-        int intentos = Integer.parseInt(JOptionPane.showInputDialog("Cuantos intentos quieres hacer "));
-        numeroA = Integer.parseInt(JOptionPane.showInputDialog("Introduzca un numero  "));
+        int usuario ;
+        int contadorIntentos;
+        int numeroLeatorio = 0;
+        int maximoIntentos = 0;
+        int numeroPista = 0;
+        int maximoRango = 0;
 
-        for (contadorNumero = 0; contadorNumero < intentos; contadorNumero++) {
-            numeroIntoducido = Integer.parseInt(JOptionPane.showInputDialog("Introduzca un numero  "));
-            if (numeroA == numeroIntoducido) {
+        int nivel;
 
-                JOptionPane.showMessageDialog(null, "Has acertado");
-                break;
-            } else if (contadorNumero == intentos) {
+        do {
 
-                JOptionPane.showMessageDialog(null, "Lo siento has perdido el nuemro era " + numeroA);
-                break;
-            } else if (numeroA > numeroIntoducido) {
-                JOptionPane.showMessageDialog(null, "El numero secreto es Mayor que " + numeroIntoducido);
-            } else if (numeroA < numeroIntoducido) {
-                JOptionPane.showMessageDialog(null, "El numero secreto es Menor que" + numeroIntoducido);
+            nivel = Integer.parseInt(JOptionPane.showInputDialog(" ********* Bienvenido al juego de adivinar un numero ******* \n"
+                    + " Introduce el nivel que quieres jugar \n" + " nivel 1" + "\n nivel 2 " + "\n nivel 3 \n" + " Y 0 para salir "));
+
+            switch (nivel) {
+                case 1:
+                    maximoRango = 50;
+                    numeroLeatorio = (int) (Math.random() * maximoRango + 1);
+                    maximoIntentos = 4;
+                    numeroPista = 3;
+                    break;
+                case 2:
+                    maximoRango = 100;
+                    numeroLeatorio = (int) (Math.random() * maximoRango + 1);
+                    maximoIntentos = 3;
+                    numeroPista = 2;
+                    break;
+                case 3:
+                    maximoRango = 200;
+                    numeroLeatorio = (int) (Math.random() * maximoRango + 1);
+                    maximoIntentos = 2;
+                    numeroPista = 1;
+                    break;
             }
 
-            if (contadorNumero <= 1) {
-                JOptionPane.showMessageDialog(null, "otro intento");
+             JOptionPane.showInternalConfirmDialog(null, " Solo tines " + maximoIntentos + " intentos ");
+             
+            for (contadorIntentos = 1; contadorIntentos <= maximoIntentos; contadorIntentos++) {
+                         
+                JOptionPane.showMessageDialog(null, " Te quedan  " + (maximoIntentos - contadorIntentos) + " intentos ");
+                usuario = Integer.parseInt(JOptionPane.showInputDialog("Introduce un numero del 1 al " + maximoRango));
 
-                numeroIntoducido = Integer.parseInt(JOptionPane.showInputDialog("Introduzca un numero  "));
+                if (usuario == numeroLeatorio) {
+                    JOptionPane.showMessageDialog(null, "Enhorabuena has ganado");
+                    break;
+                } else if (contadorIntentos == maximoIntentos) {
+                    JOptionPane.showMessageDialog(null, "Lo siento has perido el nuemero era  " + numeroLeatorio);
 
-            } else if (contadorNumero == 2) {
-                int x = (int) (numeroA / 10);
-                JOptionPane.showMessageDialog(null, "Una pista la primera cifra es " + x);
-                JOptionPane.showMessageDialog(null, "Intetalo de nuevo");
+                    break;
 
-                numeroIntoducido = Integer.parseInt(JOptionPane.showInputDialog("Introduzca un numero  "));
-            } else if (contadorNumero >= 3) {
+                } else if (usuario > numeroLeatorio) {
+                    JOptionPane.showMessageDialog(null, "EL numero es menor ");
 
-                JOptionPane.showMessageDialog(null, "ultimo intento");
-                numeroIntoducido = Integer.parseInt(JOptionPane.showInputDialog("Introduzca un numero  "));
-                JOptionPane.showMessageDialog(null, "Haz fallado");
+                } else if (usuario < numeroLeatorio) {
+                    JOptionPane.showMessageDialog(null, "EL numero es mayor ");
+
+                }
+                if (contadorIntentos == numeroPista) {
+                    int x = (numeroLeatorio / 10);
+                    JOptionPane.showMessageDialog(null, "Te dare un pista el numero empieza por  " + x);
+
+                }
 
             }
 
-        }
+        } while (nivel != 0);
 
     }
 }
-
-
-
-    /* 1- Codifica un programa que permita el siguiente juego  para adivinar un número .
-El primer jugador  teclea ( utilizando la clase JoptionPane ), un número a adivinar ( entre 1 y 50 ) 
-y el número máximo de intentos que tiene el segundo jugador para dar con él . El programa irá sacando por pantaia
-mensajes que orienten el segundo jugador sobre se el número tecleado y mayor o menor que el número a adivinar . Hace el programa repetitivo
-.*/
