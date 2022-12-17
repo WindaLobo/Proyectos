@@ -42,17 +42,20 @@ public class Repaso1 {
     }
 
     private static void bucle4() {
-        int numero = Integer.parseInt(JOptionPane.showInputDialog(" Introduce un nuemro "));
+        int numero;
         do {
-            if (numero != 0) {
+
+            numero = Integer.parseInt(JOptionPane.showInputDialog(" Introduce un nuemro "));
+            if (numero > 0) {
                 System.out.println(numero);
-            } else {
+            } else if (numero != 0) {
                 numero = Integer.parseInt(JOptionPane.showInputDialog(" Introduce un nuemro positivo "));
+                break;
 
+            
             }
-            }while (numero != 0);
+        } while (numero != 0);
 
-              
     }
 
 }

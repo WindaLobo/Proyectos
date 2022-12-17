@@ -18,7 +18,9 @@ public class AdivinadorDeNumero {
 
             nivel = Integer.parseInt(JOptionPane.showInputDialog(" ********* Bienvenido al juego de adivinar un numero ******* \n"
                     + " Introduce el nivel que quieres jugar \n" + " nivel 1" + "\n nivel 2 " + "\n nivel 3 \n" + " Y 0 para salir "));
-
+              if(nivel!=0){
+                  
+              
             switch (nivel) {
                 case 1:
                     maximoRango = 50;
@@ -38,8 +40,9 @@ public class AdivinadorDeNumero {
                     maximoIntentos = 2;
                     numeroPista = 1;
                     break;
+                    
             }
-
+     
              JOptionPane.showInternalConfirmDialog(null, " Solo tines " + maximoIntentos + " intentos ");
              
             for (contadorIntentos = 1; contadorIntentos <= maximoIntentos; contadorIntentos++) {
@@ -69,6 +72,7 @@ public class AdivinadorDeNumero {
                 }
 
             }
+              }
 
         } while (nivel != 0);
 
