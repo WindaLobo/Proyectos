@@ -6,10 +6,15 @@ public class Boletin12 {
     
     public static void main(String[] args) {
         
-        //Juego obx = new Juego();
-        //obx.juegoadivinador();
-        Jugadores2 obx = new Jugadores2();
-        obx.juegoadivinador2();
+        //Juego obx1 = new Juego();
+        // obx1.juegoCPU();
+       // obx1.juegoAdivinanzaMulti();
+        
+        AdivinadorDeNumero obx2 = new  AdivinadorDeNumero ();
+          obx2.juegoAdivinador();
+        
+        
+        
     }
     
 }
