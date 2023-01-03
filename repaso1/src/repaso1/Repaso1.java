@@ -167,7 +167,7 @@ public class Repaso1 {
         double nota = 0;
 
         int alumno = 0;
-        JOptionPane.showMessageDialog(null, " ****** Programa para calcular la nota ****** ");
+        JOptionPane.showMessageDialog(null, " ****** Programa para calcular la nota  ****** ");
 
         for (int i = 1; i <= 3; i++) {
             nota=0;

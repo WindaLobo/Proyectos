@@ -14,7 +14,12 @@ public class Practica {
         //ejercio7();
         //ejercio8();
         //ejercio9();
-        ejercio10();
+        //ejercio10();
+        // ejercio11();
+        //ejercio12();
+        //ejercio12_A();
+        ejercio13();
+        //ejercio14();
 
     }
 
@@ -89,7 +94,7 @@ public class Practica {
         double precio;
         String elegir;
         do {
-            elegir = JOptionPane.showInputDialog("quieres calcular un precio(Si/no) ");
+            elegir = JOptionPane.showInputDialog("quieres calcular un precio(Si/No) ");
 
             if (elegir.toUpperCase().equals("SI")) {
                 int opcion = Integer.parseInt(JOptionPane.showInputDialog("quieres el precio sin iva marcas (1) o con iva marcas  (2) "));
@@ -166,51 +171,116 @@ public class Practica {
     }
 
     private static void ejercio10() {
- 
+
         int precioDeVentas = 0;
         int i = 0;
         int cuantasVentas = Integer.parseInt(JOptionPane.showInputDialog("Introduce cantidad vetas"));
         while (cuantasVentas > i) {
             precioDeVentas += Integer.parseInt(JOptionPane.showInputDialog("Introduce el precio de  vetas"));
             i++;
-           
+
         }
         System.out.println("EL total de  ventas es " + (precioDeVentas));
 
     }
+
+    private static void ejercio11() {
+
+        double a = Double.parseDouble(JOptionPane.showInputDialog("Introduce a"));
+        double b = Double.parseDouble(JOptionPane.showInputDialog("Introduce b"));
+        double c = Double.parseDouble(JOptionPane.showInputDialog("Introduce c"));
+        double discriminante = (Math.pow(b, 2) - (4 * a * c));
+        System.out.println("La raiz cuadrada es  : " + discriminante);
+
+        if (discriminante > 0) {
+
+            double numero1 = ((b * (-1)) + Math.sqrt(discriminante)) / (2 * a);
+
+            System.out.println(" La operacionde la raiz es " + numero1);
+
+        } else {
+            System.out.println("La operacionde la raiz es negativo ");
+
+        }
+
+    }
+
+    private static void ejercio12() {
+        String contraseña = "windar";
+        int intentos = 3;
+        int i;
+        String introducirContraseña;
+        int intentosTotal;
+
+        for (i = 1; intentos >= i; i++) {
+            introducirContraseña = JOptionPane.showInputDialog(" Introduce una contraseña");
+            intentosTotal = intentos - i;
+
+            if (contraseña.equals(introducirContraseña)) {
+                System.out.println(" « Enhorabuena has acertado » ");
+                break;
+            } else {
+                JOptionPane.showMessageDialog(null, " Solo tienes " + intentosTotal);
+                System.out.println("La contarseña es incorrecta");
+            }
+        }
+
+    }
+
+    private static void ejercio12_A() {
+        final String contraseña = "windar";
+        final int maxIntentos = 3;
+
+        for (int i = 1; i <= maxIntentos; i++) {
+            String introducirContraseña = JOptionPane.showInputDialog(" Introduce una contraseña");
+
+            if (contraseña.equals(introducirContraseña)) {
+                System.out.println(" « Enhorabuena has acertado » ");
+                break;
+            } else {
+                JOptionPane.showMessageDialog(null, " Solo tienes " + (maxIntentos - i));
+                System.out.println("La contarseña es incorrecta");
+            }
+        }
+    }
+
+    private static void ejercio13() {
+        String confirmacion;
+        String dia;
+        do {
+            confirmacion = JOptionPane.showInputDialog("<<<<< Quieres ver un dia de la semana (SI/NO) >>>>");
+            if (confirmacion.equalsIgnoreCase("SI")) {
+
+                dia = JOptionPane.showInputDialog("<<<<< Que dias de la semanas deseas  marcar >>>> ");
+                switch (dia.toLowerCase()) {
+                    case "lunes":
+                        System.out.println("Dia laborar");
+                        break;
+                    case "martes":
+                        System.out.println("Dia laborar");
+                        break;
+                    case "miercoles":
+                        System.out.println("Dia laborar");
+                        break;
+                    case "jueves":
+                        System.out.println("Dia laborar");
+                        break;
+                    case "viernes":
+                        System.out.println("Dia laborar");
+                        break;
+                    case "sabados":
+                        System.out.println("Dia no laborar");
+                        break;
+                    case "domingo":
+                        System.out.println(" Dia no  laborar");
+                        break;
+                }
+            }
+        } while (confirmacion.equalsIgnoreCase("SI"));
+    }
+
+    private static void ejercio14() {
+
+    }
+
 }
-
-/* 1) Declara dos variables numéricas (con el valor que desees),
-muestra por consola la suma, resta, multiplicación, 
-división y módulo (resto de la división).
-
-2) Declara 2 variables numéricas (con el valor que desees),
-he indica cual es mayor de los dos. Si son iguales indicarlo también.
-Ves cambiando los valores para comprobar que funciona.
-
-3) Declara un String que contenga tu nombre, después muestra un mensaje
-de bienvenida por consola. Por ejemplo: si introduzco «Fernando»,
-me aparezca «Bienvenido Fernando»
-
-4)  Haz una aplicación que calcule el área de un círculo(pi*R2). 
-El radio se pedirá por teclado (recuerda pasar de String a double con 
-Double.parseDouble). Usa la constante PI y el método pow de Math.
-
-5)  Lee un número por teclado e indica si es divisible entre 2 (resto = 0). 
-Si no lo es, también debemos indicarlo.
-
-6)Lee un número por teclado que pida el precio de un producto 
-(puede tener decimales) y calcule el precio final con IVA. 
-El IVA sera una constante que sera del 21%.
-7) Muestra los números del 1 al 100 (ambos incluidos). Usa un bucle while.
-8) Haz el mismo ejercicio anterior con un bucle for.
-
-9)Muestra los números del  1al 100 (ambos incluidos)
-divisibles entre 2 y 3. Utiliza el bucle que desees.
-
-10) Realiza una aplicación que nos pida un número de ventas a introducir,
-después nos pedirá tantas ventas por teclado como número de ventas se 
-hayan indicado. Al final mostrara la suma de todas las ventas.
-Piensa que es lo que se repite y lo que no.
-
- */

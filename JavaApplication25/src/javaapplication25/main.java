@@ -18,11 +18,15 @@ public class main {
                 break;
 
             case "D":
-                Deportivo depor = new Deportivo("Mercedez", 80, false);
+                Deportivo depor = new Deportivo("Mercedez", 45, false);
                 depor.Arrancar();
                 depor.Acelerar();
-                 depor.Acelerar();
-
+                depor.Acelerar();
+                depor.Acelerar();
+                depor.Frenar();
+               
+               
+    
                 depor.setColor("Rojo");
                 System.out.println(depor.toString());
                 break;

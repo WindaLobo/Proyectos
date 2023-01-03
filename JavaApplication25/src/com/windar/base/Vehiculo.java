@@ -13,13 +13,12 @@ public class Vehiculo {
     public Vehiculo() {
     }
 
-    public Vehiculo(String modelo, double velocidadMaxima, boolean tieneABS) {
+    public Vehiculo(String modelo, double velocidadMaxima, boolean tieneABS, String color) {
         this.modelo = modelo;
         this.velocidadMaxima = velocidadMaxima;
         this.tieneABS = tieneABS;
         this.velocidad = 0.0;
         this.color = color;
-
     }
 
     public String getModelo() {
@@ -50,33 +49,24 @@ public class Vehiculo {
         this.velocidad = velocidad;
     }
 
-    public void Acelerar(double velocidad) {
-
+    protected void Acelerar(double velocidad) {
         if (this.estaArrancando) {
-            this.velocidad += velocidad;
-            if (this.velocidad + velocidad > velocidadMaxima) {
+            if (this.velocidad + velocidad >= velocidadMaxima) {
                 this.velocidad = velocidadMaxima;
-
             } else {
                 this.velocidad += velocidad;
-
             }
-
         }
-
     }
 
-    public void Frenar(double velocidad) {
-
+    protected void Frenar(double velocidad) {
         if (this.estaArrancando) {
             if (this.tieneABS) {
                 this.velocidad -= velocidad + 1;
             } else {
                 this.velocidad -= velocidad;
-
             }
         }
-
     }
 
     public void Arrancar() {
@@ -86,7 +76,6 @@ public class Vehiculo {
 
     public void Apagar() {
         this.estaArrancando = false;
-
     }
 
     public void setColor(String color) {
